@@ -18,3 +18,8 @@ python csv_aggregator.py --files_path <path> --file_prefix <prefix>
 ```shell
 python csv_aggregator.py --help
 ```
+
+**Run tests**
+```shell
+python tests.py
+```

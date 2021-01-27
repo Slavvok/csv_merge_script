@@ -88,7 +88,7 @@ class Aggregator:
         if path:
             path = os.path.join(PATH, path)
             if not os.path.exists(path):
-                raise ValueError('Wrong path')
+                raise FileNotFoundError(f'Wrong path {path}')
         # Check if files exist
         files = glob.glob(path + f"/{file_prefix}*.csv")
         if not files:
