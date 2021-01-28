@@ -1,4 +1,5 @@
 import unittest
+import os
 from csv_aggregator import Aggregator
 
 
@@ -33,6 +34,14 @@ class AggregatorTests(unittest.TestCase):
         aggregator = Aggregator()
         aggregator.aggregate(path='files', file_prefix='bank')
         self.assertTrue(not aggregator.data.empty)
+
+    def test_save_result_with_filename(self):
+        aggregator = Aggregator()
+        aggregator.aggregate(path='files', file_prefix='bank')
+        aggregator.to_csv(filename='new_file')
+        is_path_exists = os.path.exists('new_file.csv')
+        self.assertTrue(is_path_exists)
+        os.remove('new_file.csv')
 
 
 if __name__ == '__main__':
