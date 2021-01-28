@@ -97,13 +97,16 @@ class Aggregator:
             raise Warning(f"There is only one file in {path}. Program stops")
         return files
 
-    def to_csv(self, path=''):
-        filename = f'result{datetime.now()}.csv'
-        path = os.path.join(PATH, filename)
+    def to_csv(self, filename=''):
+        file = f'result{datetime.now()}.csv'
+        if filename:
+            file = f'{filename}.csv'
+
+        path = os.path.join(PATH, file)
 
         if not self.data.empty:
             self.data.to_csv(path, index=False)
-            print(f'File {filename} was created in {PATH}')
+            print(f'File {file} was created in {PATH}')
 
     def to_xml(self):
         pass
