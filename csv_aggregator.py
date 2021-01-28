@@ -126,11 +126,10 @@ if __name__ == "__main__":
     parser.add_argument('--file_prefix', default='', type=str,
                         help='file_prefix in file name like <file_prefix>*.csv')
     # TODO: currency arg
-    # TODO: safe_path arg
-    # parser.add_argument('--save_path', default='', type=str, help='path to save resulting csv to')
+    parser.add_argument('--filename', default='', type=str, help='filename of the resulting csv')
     args = parser.parse_args()
     aggregator = Aggregator()
     # Aggregates multiple csv into one Dataframe
     aggregator.aggregate(path=args.files_path, file_prefix=args.file_prefix)
     # Saves Dataframe to resulting csv
-    aggregator.to_csv()
+    aggregator.to_csv(filename=args.filename)
