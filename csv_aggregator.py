@@ -121,7 +121,8 @@ class Aggregator:
 if __name__ == "__main__":
     """
     Usage example:
-        python csv_aggregator --files_path files --file_prefix doc
+        python csv_aggregator --files_folder files --files_prefix doc \
+                              --filename result_filename
     """
     parser = argparse.ArgumentParser('')
     # TODO: any path folder
