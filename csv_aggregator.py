@@ -124,15 +124,18 @@ if __name__ == "__main__":
         python csv_aggregator --files_path files --file_prefix doc
     """
     parser = argparse.ArgumentParser('')
-    parser.add_argument('--files_path', default='files', type=str,
-                        help='path from current script location')
-    parser.add_argument('--file_prefix', default='', type=str,
-                        help='file_prefix in file name like <file_prefix>*.csv')
+    # TODO: any path folder
+    parser.add_argument('--files_folder', default='files', type=str,
+                        help='Folder in the current script location')
+    parser.add_argument('--files_prefix', default='', type=str,
+                        help='File_prefix in the file name like <file_prefix>*.csv')
     # TODO: currency arg
-    parser.add_argument('--filename', default='', type=str, help='filename of the resulting csv')
+    parser.add_argument('--filename', default='', type=str,
+                        help='Filename of the resulting csv. '
+                             'Being saved in the current script location')
     args = parser.parse_args()
     aggregator = Aggregator()
     # Aggregates multiple csv into one Dataframe
-    aggregator.aggregate(path=args.files_path, file_prefix=args.file_prefix)
+    aggregator.aggregate(path=args.files_folder, file_prefix=args.files_prefix)
     # Saves Dataframe to resulting csv
     aggregator.to_csv(filename=args.filename)

@@ -8,7 +8,7 @@ Script merges csv files stored in a folder into one csv
 2. Run csv_aggregator script with params if needed
 
 ```shell
-python csv_aggregator.py --files_path <path> --file_prefix <prefix>  
+python csv_aggregator.py --files_folder <path> --files_prefix <prefix>  
                          --filename=<filename> 
 ```
 
