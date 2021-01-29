@@ -24,5 +24,3 @@ python csv_aggregator.py --help
 ```shell
 python tests.py
 ```
-
-P.S. Add empty folder 'files_empty' for tests to pass

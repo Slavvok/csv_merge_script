@@ -19,10 +19,13 @@ class AggregatorTests(unittest.TestCase):
         self.assertTrue('Wrong path' in str(context.exception))
 
     def test_file_path_is_empty(self):
+        empty_folder = 'files_empty'
+        os.mkdir(empty_folder)
         with self.assertRaises(FileNotFoundError) as context:
-            Aggregator().aggregate(path='files_empty')
+            Aggregator().aggregate(path=empty_folder)
 
         self.assertTrue('There are no files' in str(context.exception))
+        os.rmdir(empty_folder)
 
     def test_wrong_file_prefix(self):
         with self.assertRaises(FileNotFoundError) as context:
